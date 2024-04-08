@@ -7,15 +7,16 @@
 
     <!-- Need to patiently clicking the button, eventually loading indicator freezes -->
     <ScrollView>
-        <Grid RowDefinitions="Auto, *">
+        <Grid RowDefinitions="Auto, Auto, *">
             <Button
                 Text="Load image" 
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" 
                 Grid.Row="0"
                 />
+            <Label x:Name="counter" Grid.Row="1"/>
             <ContentView 
-                Grid.Row="1"
+                Grid.Row="2"
                 x:Name="contentView"
                 WidthRequest="300"
                 HeightRequest="300"
@@ -30,19 +31,21 @@
             <tabView:SfTabItem Header="Call">
                 <tabView:SfTabItem.Content>
                     <ScrollView>
-                        <Grid RowDefinitions="Auto, *">
+                        <Grid RowDefinitions="Auto, Auto, *">
                             <Button
-                                        Text="Load image" 
-                                        Clicked="OnCounterClicked"
-                                        HorizontalOptions="Fill" 
-                                        Grid.Row="0"
-                                        />
+                                Text="Load image" 
+                                Clicked="OnCounterClicked"
+                                HorizontalOptions="Fill" 
+                                Grid.Row="0"
+                                />
+                            <Label x:Name="counter" Grid.Row="1"/>
+
                             <ContentView 
-                                        Grid.Row="1"
-                                        x:Name="contentView"
-                                        WidthRequest="300"
-                                        HeightRequest="300"
-                                        />
+                                Grid.Row="2"
+                                x:Name="contentView"
+                                WidthRequest="300"
+                                HeightRequest="300"
+                                />
                         </Grid>
 
                     </ScrollView>
