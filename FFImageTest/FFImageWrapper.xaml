@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ffimage:CachedImage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
+    mc:Ignorable="d"
+    x:Class="FFImageTest.FFImageWrapper"
+    x:Name="image" 
+    Aspect="AspectFit" 
+    CacheDuration="30" 
+    CacheType="Disk" 
+    LoadingPlaceholder="loading.gif" 
+    ErrorPlaceholder="error.png"
+    HorizontalOptions="FillAndExpand"
+    DownsampleToViewSize="True"
+    >
+    <!--
+    <ffimage:CachedImage.HeightRequest>
+        <OnIdiom x:TypeArguments="x:Double" Tablet="500" Phone="300" />
+    </ffimage:CachedImage.HeightRequest>
+    <ffimage:CachedImage.DownsampleHeight>
+        <OnIdiom x:TypeArguments="x:Double" Tablet="500" Phone="300" />
+    </ffimage:CachedImage.DownsampleHeight>
+    -->
+</ffimage:CachedImage>
