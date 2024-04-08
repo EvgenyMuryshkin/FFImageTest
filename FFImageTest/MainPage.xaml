@@ -5,6 +5,26 @@
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              Title="Main Page">
 
+    <!-- Need to patiently clicking the button, eventually loading indicator freezes -->
+    <ScrollView>
+        <Grid RowDefinitions="Auto, *">
+            <Button
+                Text="Load image" 
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" 
+                Grid.Row="0"
+                />
+            <ContentView 
+                Grid.Row="1"
+                x:Name="contentView"
+                WidthRequest="300"
+                HeightRequest="300"
+                />
+        </Grid>
+
+    </ScrollView>
+    <!-- Inside SF tab view issue happens faster -->
+    <!--
     <tabView:SfTabView x:Name="tabView">
         <tabView:SfTabView.Items>
             <tabView:SfTabItem Header="Call">
@@ -30,5 +50,5 @@
             </tabView:SfTabItem>
         </tabView:SfTabView.Items>
     </tabView:SfTabView>
-
+    -->
 </ContentPage>
