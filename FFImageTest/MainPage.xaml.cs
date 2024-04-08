@@ -23,21 +23,23 @@ namespace FFImageTest
 
                     while (true)
                     {
-                        using (var stream = new MemoryStream(png))
-                        using (var image = PlatformImage.FromStream(stream))
-                        using (var resized = image.Resize(Math.Min(1500, (int)(image.Width * 0.9)), Math.Min(1500, (int)(image.Height * 0.9))))
-                        using (var resizedStream = new MemoryStream())
+                        Dispatcher.Dispatch(() =>
                         {
-                            await resized.SaveAsync(resizedStream);
-                            resizedStream.Seek(0, SeekOrigin.Begin);
-                            var base64Content = Convert.ToBase64String(resizedStream.ToArray());
-
-                            Dispatcher.Dispatch(() =>
+                            using (var stream = new MemoryStream(png))
+                            using (var image = PlatformImage.FromStream(stream))
+                            using (var resized = image.Resize(Math.Min(1500, (int)(image.Width * 0.9)), Math.Min(1500, (int)(image.Height * 0.9))))
+                            using (var resizedStream = new MemoryStream())
                             {
-                                counter.Text = $"{clickCounter}/{++resizeCounter}";
-                            });
-                            await Task.Delay(rnd.Next(50, 100));
-                        }
+                                resized.Save(resizedStream);
+                                resizedStream.Seek(0, SeekOrigin.Begin);
+                                var base64Content = Convert.ToBase64String(resizedStream.ToArray());
+                            }
+
+                            counter.Text = $"{clickCounter}/{++resizeCounter}";
+                        });
+
+
+                        await Task.Delay(rnd.Next(50, 100));
                     }
                 }
                 catch(Exception ex)
