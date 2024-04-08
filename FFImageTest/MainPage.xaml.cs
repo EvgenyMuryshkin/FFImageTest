@@ -23,6 +23,8 @@ namespace FFImageTest
 
                     while (true)
                     {
+                        var tcs = new TaskCompletionSource<bool>();
+
                         Dispatcher.Dispatch(() =>
                         {
                             using (var stream = new MemoryStream(png))
@@ -36,9 +38,10 @@ namespace FFImageTest
                             }
 
                             counter.Text = $"{clickCounter}/{++resizeCounter}";
+                            tcs.SetResult(true);
                         });
 
-
+                        await tcs.Task;
                         await Task.Delay(rnd.Next(50, 100));
                     }
                 }
