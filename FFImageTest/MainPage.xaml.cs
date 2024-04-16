@@ -5,7 +5,8 @@ namespace FFImageTest
 {
     public partial class MainPage : ContentPage
     {
-        string fastURL = "https://scontent.fsyd4-1.fna.fbcdn.net/v/t39.8562-6/434191236_1410755556274331_2008438480370203932_n.png?_nc_cat=103&ccb=1-7&_nc_sid=f537c7&_nc_ohc=k-goONlsEaEAb7fWUoL&_nc_ht=scontent.fsyd4-1.fna&oh=00_AfAQWSeZmDt40yVWnCWBVgQ0xhHgO6eQHgDVULhbikLtpQ&oe=6618D19E";
+        //string fastURL = "https://scontent.fsyd4-1.fna.fbcdn.net/v/t39.8562-6/434191236_1410755556274331_2008438480370203932_n.png?_nc_cat=103&ccb=1-7&_nc_sid=f537c7&_nc_ohc=k-goONlsEaEAb7fWUoL&_nc_ht=scontent.fsyd4-1.fna&oh=00_AfAQWSeZmDt40yVWnCWBVgQ0xhHgO6eQHgDVULhbikLtpQ&oe=6618D19E";
+        string fastURL = "https://scontent.fsyd4-1.fna.fbcdn.net/v/t39.8562-6/280168240_476677224233917_5197881565420741180_n.png?_nc_cat=110&ccb=1-7&_nc_sid=f537c7&_nc_ohc=4cjd9OKVEUUAb7FnkeM&_nc_ht=scontent.fsyd4-1.fna&oh=00_AfAHhVMxDyWjFkePohHbqHN608xLXHgqkPCknDP4a-ZtBg&oe=6624EDEC";
         string slowURL = "https://i.stack.imgur.com/rHVKc.png";
 
         public MainPage()
