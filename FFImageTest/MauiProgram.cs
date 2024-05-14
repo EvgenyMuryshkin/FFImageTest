@@ -1,6 +1,6 @@
 ﻿using FFImageLoading.Maui;
 using Microsoft.Extensions.Logging;
-//using Syncfusion.Maui.Core.Hosting;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace FFImageTest
 {
@@ -11,14 +11,15 @@ namespace FFImageTest
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                //.ConfigureSyncfusionCore()
+                .ConfigureSyncfusionCore()
                 .UseFFImageLoading()
                 .UseFFImageLoadingTrustSelfSignedCertificates()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .UseMauiMaps();
 
 #if DEBUG
     		builder.Logging.AddDebug();

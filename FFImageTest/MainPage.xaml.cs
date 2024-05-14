@@ -12,6 +12,7 @@ namespace FFImageTest
         public MainPage()
         {
             InitializeComponent();
+            ReportAssemblies();
 
             // run something heavy
             Task.Factory.StartNew(async () =>
@@ -55,6 +56,27 @@ namespace FFImageTest
                 }
 
             });
+        }
+
+        void ReportAssemblies()
+        {
+            var assembliesStack = new VerticalStackLayout();
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            foreach (var assembly in assemblies.OrderBy(a => (a.FullName ?? "").ToLower()))
+            {
+                assembliesStack.Add(
+                    new Label()
+                    {
+                        Text = assembly.FullName ?? ""
+                    }
+                );
+            }
+
+            contentView.Content = new ScrollView()
+            {
+                Padding = new Thickness(5),
+                Content = assembliesStack
+            };
         }
 
         int clickCounter = 0;
