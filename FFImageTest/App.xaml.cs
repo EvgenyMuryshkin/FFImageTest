@@ -17,25 +17,9 @@ namespace FFImageTest
         {
             InitializeComponent();
 
-            var anchorObjects = new object[]
-            {
-                typeof(Syncfusion.Licensing.SyncfusionLicenseProvider),
-                typeof(SfTextInputLayout),
-                typeof(SfButton),
-                typeof(SfCalendar),
-                typeof(SfImageEditor),
-                typeof(SfDataGrid),
-                typeof(SfPullToRefresh),
-                typeof(SfTabView),
-                typeof(SfTreeView),
-                typeof(SfPicker),
-                typeof(SfListView),
-                // unconmment next line to get crash on Syncfusion.License loading
-                //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense
-            };
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("");// version 25.x.x
 
-            if (anchorObjects.All(t => t != null))
-                MainPage = new AppShell();
+            MainPage = new AppShell();
         }
     }
 }

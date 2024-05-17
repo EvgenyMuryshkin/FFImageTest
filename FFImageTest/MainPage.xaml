@@ -5,53 +5,47 @@
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              Title="Main Page">
 
-    <!-- Need to patiently clicking the button, eventually loading indicator freezes -->
-    <ScrollView>
-        <Grid RowDefinitions="Auto, Auto, *">
-            <Button
-                Text="Load image" 
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" 
-                Grid.Row="0"
-                />
-            <Label x:Name="counter" Grid.Row="1"/>
-            <ContentView 
-                Grid.Row="2"
-                x:Name="contentView"
-                WidthRequest="300"
-                HeightRequest="300"
-                />
-        </Grid>
-
-    </ScrollView>
-    <!-- Inside SF tab view issue happens faster -->
-    <!--
-    <tabView:SfTabView x:Name="tabView">
-        <tabView:SfTabView.Items>
-            <tabView:SfTabItem Header="Call">
-                <tabView:SfTabItem.Content>
-                    <ScrollView>
-                        <Grid RowDefinitions="Auto, Auto, *">
-                            <Button
-                                Text="Load image" 
-                                Clicked="OnCounterClicked"
-                                HorizontalOptions="Fill" 
-                                Grid.Row="0"
-                                />
-                            <Label x:Name="counter" Grid.Row="1"/>
-
-                            <ContentView 
-                                Grid.Row="2"
-                                x:Name="contentView"
-                                WidthRequest="300"
-                                HeightRequest="300"
-                                />
+    <StackLayout>
+        <sfListView:SfListView 
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+            xmlns:sfListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:sfDataSource="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
+            x:Name="listView" 
+            IsStickyGroupHeader="True" 
+            SelectionMode="Single" 
+            IsScrollingEnabled="True"   
+            AutoFitMode="DynamicHeight" 
+            AllowGroupExpandCollapse="True" 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <sfListView:SfListView.DataSource>
+                <sfDataSource:DataSource>
+                    <sfDataSource:DataSource.GroupDescriptors>
+                        <sfDataSource:GroupDescriptor PropertyName="GroupName"/>
+                    </sfDataSource:DataSource.GroupDescriptors>
+                </sfDataSource:DataSource>
+            </sfListView:SfListView.DataSource>
+            <sfListView:SfListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="0,5,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Key}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center" Margin="5,0,0,0" Grid.Column="0" />
+                            </Grid>
+                            <BoxView Grid.Row="1" Color="Transparent"  HorizontalOptions="FillAndExpand" HeightRequest="1"/>
                         </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </sfListView:SfListView.GroupHeaderTemplate>
+        </sfListView:SfListView>
+    </StackLayout>
 
-                    </ScrollView>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-        </tabView:SfTabView.Items>
-    </tabView:SfTabView>
-    -->
 </ContentPage>
